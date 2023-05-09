@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@1,500&family=Chivo+Mono:wght@500&family=Montserrat:wght@500&family=Open+Sans&family=PT+Sans+Caption:wght@400;700&family=Playfair+Display+SC:ital,wght@0,900;1,700&family=Quicksand:wght@400;700&family=Rubik&family=Sora:wght@500&family=Vidaloka&display=swap" rel="stylesheet">
+	<style type="text/css">
+		img{
+			width: 150px;
+		}
+
+		#fig1,#fig2{
+			width: 500px;
+		}
+
+		body {
+			background-color: #ACB1D6;
+		}
+
+		h2 {
+			font-family: Quicksand;
+		}
+
+		p {
+			font-family: Quicksand;
+		}
+	</style>
+	<title>Exercise 5</title>
+</head>
+<body>
+	<div class="container mt-3 bg-light">
+
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark text-light">
+        <a class="navbar-brand text-light">Electric Eng.</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">HOME</a></li> 
+            <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li> 
+            <li class="nav-item"><a href="#cu" class="nav-link">CONTACT US</a></li> 
+        </ul>
+
+       	<form class="form-inline ">
+			<input type="Search" name="Search" class="form-control">
+			<input type="submit" name="SEARCH" class="btn btn-success">
+		</form>
+    </nav>
+    <br>
+    <br>
+    <br>
+	<p id="DT"></p>
+    	<script type="text/javascript">
+        	const D = new Date();
+            document.getElementById('DT').innerHTML = D;
+        </script>
+
+	<h2>Light Bulbs and how they function</h2>
+	<p>The typical incandescent light bulb contains a thin wire (usually tungsten) called a filament that has a high electrical resistance. This filament gets very hot when an electric current passes through it. The intense temperature makes the filament glow brightly.</p>
+	<audio id="audio" src="electric-hum.mp3"></audio>
+	<button class="btn btn-success" onmouseover="On()" onmouseout="Off()">SWITCH ON LIGHTS</button>
+	<img src="turnoff.png" id="Bulb">
+
+
+	<h2>Ohm's Law and how to calculate for Current</h2>
+	<p>Ohm's principal discovery was that the amount of electric current through a metal conductor in a circuit is directly proportional to the voltage impressed across it, for any given temperature. Ohm expressed his discovery in the form of a simple quation, describing how voltage,  current, and resistance interrelate: <kbd>Voltage(E) = Current(I)Resistance(R)</kbd></p>
+	<img src="fig1.png" id="fig1">
+	<p>Calculate the amount of current (I) in a circuit, given values of voltage (E) and resistance (R):</p>
+	<div class="row">
+		<div class="col-6">
+			<img src="fig2.png" id="fig2"><br>
+		</div>
+		<div>
+			Enter Voltage(E): <input type="text" id="V" class="form-control"><br>
+			Enter Resistance(R): <input type="text" id="R" class="form-control"><br>
+			<input type="submit" value="COMPUTE" class="btn-secondary" onclick="Compute()">
+			<h4 id="Output"></h4>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		function On(){
+			document.getElementById('Bulb').src = "turnon.png";
+			document.getElementById('audio').play();
+		}
+		function Off(){
+			document.getElementById('Bulb').src = "turnoff.png";
+			document.getElementById('audio').pause();
+		}
+		function Compute(){
+			let Voltage = document.getElementById('V').value;
+			let Resistance = document.getElementById('R').value;
+
+			let Current = Voltage / Resistance;
+			document.getElementById('Output').innerHTML = "The Current(I) is: " + Current;
+		}
+	</script>
+
+	<h2>Electrical Testing Safety</h2>
+	<ul>
+	<li>Proper planning and preparation can increase safety during testing.
+	<li>A risk assessment is required by NFPA 70E for electrical safety.
+	<li>Stopping work to fetch tools can be hazardous.
+	<li>Traffic in the area poses a significant hazard.
+	<li>An Energized Electrical Work Permit (EEWP) is necessary for work with electrical systems.
+	<li>Exemptions for an EEWP exist but all other requirements of Article 130 still apply.
+	<li>Annex J contains an example EEWP that can be modified to fit a specific job.
+	<li>Before testing, determine the purpose and necessary test instruments.
+	<li>Determine if a safety backup is necessary and what PPE is required.
+	<li>Understand the circuit voltage, arc flash boundary, and incident energy.
+	</ul>
+
+	<p>Source: <br><a href="https://www.wonderopolis.org/wonder/what-makes-a-light-bulb-light-up">https://www.wonderopolis.org/wonder/what-makes-a-light-bulb-light-up</a></p><br>
+	<a href="https://www.allaboutcircuits.com/textbook/direct-current/chpt-2/voltage-current-resistance-relate/">https://www.allaboutcircuits.com/textbook/direct-current/chpt-2/voltage-current-resistance-relate/</a></p>
+	<a href="https://www.fluke.com/en-ph/learn/blog/electrical/part-1-electrical-testing-safety-preparing-for-absence-of-voltage-testing">https://www.fluke.com/en-ph/learn/blog/electrical/part-1-electrical-testing-safety-preparing-for-absence-of-voltage-testing</a></p>
+	</div>
+</body>
+</html>
